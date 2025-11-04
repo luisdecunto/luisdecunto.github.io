@@ -1,4 +1,3 @@
-# Site settings
 title: Luis De Cunto
 description: >
   Mechanical Engineer specializing in Computational Modeling and Machine Learning.
@@ -6,29 +5,21 @@ description: >
 baseurl: ""
 url: "https://luisdecunto.github.io"
 
-# Author
 author:
   name: Luis De Cunto
   email: luisdcnt@gmail.com
 
-# Social
 github_username: luisdecunto
 linkedin_username: luisdecunto
 
-# Build settings
 markdown: kramdown
 theme: minima
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
 
-# Collections
 collections:
   projects:
     output: true
     permalink: /projects/:path/
 
-# Defaults
 defaults:
   - scope:
       path: ""
@@ -40,14 +31,3 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-
-# Exclude from processing
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor
-  - DEPLOY_NOW.md
-  - PORTFOLIO_SETUP_COMPLETE.md
-  - QUICKSTART.md
-  - TODO_ADD_THESE_FILES.md

@@ -130,12 +130,6 @@ World Kitchen: Weekly dinner events for 50 international participants, encouragi
 
 ---
 
-## Publications
-
-Pedreira, P. H., J. R. Lauretta, and S. D'hers. "Planar Nozzles for Controllable Microthrusters." *Journal of Aerospace Engineering* (2016): 06016007.
-
----
-
 ## References
 
 **Professor Souhayl Sadik**

@@ -1,104 +1,276 @@
 ---
 ---
 
-@import "minima";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  max-width: 900px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.7;
+  color: #2d3748;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.wrapper {
+  max-width: 1100px;
   margin: 0 auto;
   padding: 20px;
+  background: white;
+  min-height: 100vh;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
 }
 
-a {
-  color: #0366d6;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 24px;
-  margin-bottom: 16px;
-  font-weight: 600;
-  line-height: 1.25;
-}
-
-h1 {
-  font-size: 2em;
-  border-bottom: 1px solid #eaecef;
-  padding-bottom: 0.3em;
-}
-
-h2 {
-  font-size: 1.5em;
-  border-bottom: 1px solid #eaecef;
-  padding-bottom: 0.3em;
-}
-
-h3 {
-  font-size: 1.25em;
-}
-
-code {
-  background-color: #f6f8fa;
-  padding: 2px 4px;
-  border-radius: 3px;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-  font-size: 85%;
-}
-
-pre {
-  background-color: #f6f8fa;
-  padding: 16px;
-  border-radius: 6px;
-  overflow: auto;
-}
-
-blockquote {
-  border-left: 4px solid #dfe2e5;
-  padding-left: 16px;
-  color: #6a737d;
-}
-
-ul, ol {
-  padding-left: 2em;
-}
-
+/* Header Styling */
 .site-header {
-  border-bottom: 1px solid #e8e8e8;
-  padding: 20px 0;
-  margin-bottom: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 30px 0;
+  margin-bottom: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.site-header .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  box-shadow: none;
+  min-height: auto;
 }
 
 .site-title {
-  font-size: 26px;
-  font-weight: 600;
-  color: #333;
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.site-title:hover {
+  transform: scale(1.05);
 }
 
 .site-nav {
-  float: right;
-  line-height: 54px;
+  display: flex;
+  gap: 30px;
 }
 
 .site-nav a {
-  margin-left: 20px;
-  color: #333;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
 }
 
+.site-nav a:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Content Styling */
 .page-content {
-  padding: 30px 0;
+  padding: 50px 20px;
+  background: white;
 }
 
+/* Typography */
+h1 {
+  font-size: 2.5em;
+  color: #1a202c;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 2em;
+  color: #2d3748;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #667eea;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.5em;
+  color: #4a5568;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 20px;
+  color: #4a5568;
+  font-size: 16px;
+}
+
+strong {
+  color: #2d3748;
+  font-weight: 600;
+}
+
+/* Links */
+a {
+  color: #667eea;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+a:hover {
+  color: #764ba2;
+  border-bottom: 2px solid #764ba2;
+}
+
+/* Lists */
+ul, ol {
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+  color: #4a5568;
+}
+
+/* Code */
+code {
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-family: "Fira Code", "SFMono-Regular", Consolas, monospace;
+  font-size: 14px;
+  color: #667eea;
+  border: 1px solid #e2e8f0;
+}
+
+pre {
+  background: #2d3748;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+pre code {
+  background: transparent;
+  color: #a0aec0;
+  border: none;
+  padding: 0;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 5px solid #667eea;
+  padding-left: 20px;
+  margin: 20px 0;
+  color: #718096;
+  font-style: italic;
+  background: #f7fafc;
+  padding: 15px 20px;
+  border-radius: 5px;
+}
+
+/* Cards for projects */
+.project-card {
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  border-left: 5px solid #667eea;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(102, 126, 234, 0.2);
+  border-left-color: #764ba2;
+}
+
+/* Footer */
 .footer {
-  border-top: 1px solid #e8e8e8;
-  padding: 30px 0;
-  margin-top: 50px;
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+  color: white;
+  padding: 40px 0;
+  margin-top: 60px;
+}
+
+.footer .wrapper {
+  background: transparent;
+  box-shadow: none;
+  min-height: auto;
   text-align: center;
-  color: #666;
+}
+
+.footer p {
+  color: #cbd5e0;
+  margin-bottom: 15px;
+}
+
+.footer a {
+  color: #90cdf4;
+  margin: 0 15px;
+  transition: all 0.3s ease;
+  border-bottom: none;
+}
+
+.footer a:hover {
+  color: #63b3ed;
+  transform: scale(1.1);
+  display: inline-block;
+}
+
+/* Home page hero */
+.home h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.home > p:first-of-type {
+  font-size: 1.3em;
+  color: #718096;
+  margin-bottom: 30px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .site-header .wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .site-nav {
+    gap: 15px;
+  }
+
+  .site-title {
+    font-size: 24px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
 }

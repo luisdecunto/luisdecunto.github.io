@@ -152,18 +152,3 @@ function [N_enriched] = xfem_enrichment(x, y, crack_tip)
 end
 ```
 -->
-
-<!-- <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/xfem_mesh.jpg" title="FEM mesh" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/xfem_crack.jpg" title="Crack propagation" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/xfem_pressure.jpg" title="Pressure field" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Left: FEM mesh with XFEM enrichment. Middle: Crack propagation sequence. Right: Fluid pressure distribution.
-</div> -->

@@ -97,18 +97,3 @@ This research has potential applications in:
 **Organization:** Aarhus University - Mechanics and Geometry of Solids (MGS) Lab
 **Supervisor:** PhD Souhayl Sadik
 
-<!-- Add images when available -->
-<!-- <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/kirigami_pattern.jpg" title="Kirigami pattern" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/kirigami_deformation.jpg" title="Deformation" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/kirigami_results.jpg" title="Results" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Left: Laser-cut kirigami pattern. Middle: Deformation under loading. Right: Experimental vs theoretical results.
-</div> -->

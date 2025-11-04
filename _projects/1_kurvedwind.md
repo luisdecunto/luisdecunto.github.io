@@ -79,16 +79,3 @@ Developed a hybrid approach combining physics-based simulation with data-driven 
 **Project Period:** 2021 - Present
 **Organization:** Aarhus University - Mechanics and Geometry of Solids (MGS) Lab
 **Supervisor:** PhD Souhayl Sadik
-
-<!-- Add images here when available -->
-<!-- <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/kurvedwind_1.jpg" title="FEM simulation" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/kurvedwind_2.jpg" title="ML predictions" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Left: FEM simulation results. Right: ML model predictions vs actual values.
-</div> -->

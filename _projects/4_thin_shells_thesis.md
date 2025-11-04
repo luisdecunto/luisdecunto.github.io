@@ -154,16 +154,3 @@ This research contributes to:
 **Project Period:** 2020 - 2021
 **Institution:** Aarhus University
 **Degree:** M.Sc. in Mechanical Engineering
-
-<!-- Add visualizations when available -->
-<!-- <div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/thin_shells_stress.jpg" title="Stress distribution" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/thin_shells_curvature.jpg" title="Curvature map" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Left: Von Mises stress distribution showing localization. Right: Gaussian curvature map showing correlation with stress.
-</div> -->

@@ -15,7 +15,7 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0a0e27;
+      background: #001a33;
       color: white;
       overflow-x: hidden;
     }
@@ -28,7 +28,13 @@
       align-items: center;
       text-align: center;
       position: relative;
-      background: linear-gradient(135deg, #0a0e27 0%, #1a2456 100%);
+      background: linear-gradient(135deg, #001a33 0%, #002d5c 100%);
+      transition: opacity 0.6s ease-out;
+    }
+
+    .hero.hidden {
+      opacity: 0;
+      pointer-events: none;
     }
 
     .hero::before {
@@ -36,8 +42,8 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at 20% 50%, rgba(0, 87, 163, 0.1) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 80%, rgba(0, 61, 115, 0.1) 0%, transparent 50%);
+      background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
       animation: pulse 8s ease-in-out infinite;
     }
 
@@ -250,17 +256,17 @@
       <p class="subtitle">Mechanical Engineer × Machine Learning</p>
 
       <div class="nav-cards">
-        <a href="{{ '/projects/' | relative_url }}" class="nav-card">
+        <a href="#" class="nav-card" data-section="projects">
           <div class="card-title">Projects</div>
           <div class="card-desc">FEM simulations, ML models, and engineering solutions</div>
         </a>
 
-        <a href="{{ '/about/' | relative_url }}" class="nav-card">
+        <a href="#" class="nav-card" data-section="about">
           <div class="card-title">About</div>
           <div class="card-desc">Background, expertise, and experience</div>
         </a>
 
-        <a href="{{ '/resume/' | relative_url }}" class="nav-card">
+        <a href="#" class="nav-card" data-section="resume">
           <div class="card-title">Resume</div>
           <div class="card-desc">Education, work experience, and skills</div>
         </a>
@@ -277,5 +283,279 @@
       <span></span>
     </div>
   </div>
+
+  <!-- Content Sections -->
+  <div id="content-overlay" class="content-overlay">
+    <div class="content-container">
+      <button class="close-btn" onclick="closeContent()">×</button>
+      <div id="content-body"></div>
+    </div>
+  </div>
+
+  <style>
+    .content-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #001a33;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      overflow-y: auto;
+    }
+
+    .content-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .content-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      color: white;
+      transform: translateY(50px);
+      transition: transform 0.4s ease;
+    }
+
+    .content-overlay.active .content-container {
+      transform: translateY(0);
+    }
+
+    .close-btn {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1001;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
+    }
+
+    #content-body h1 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      color: white;
+    }
+
+    #content-body h2 {
+      font-size: 2rem;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: white;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 10px;
+    }
+
+    #content-body h3 {
+      font-size: 1.5rem;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      color: #90cdf4;
+    }
+
+    #content-body p, #content-body li {
+      color: #cbd5e0;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    #content-body a {
+      color: #90cdf4;
+      border-bottom: 1px solid transparent;
+    }
+
+    #content-body a:hover {
+      border-bottom: 1px solid #90cdf4;
+    }
+
+    #content-body strong {
+      color: white;
+    }
+
+    .project-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      border-left: 4px solid #90cdf4;
+      transition: all 0.3s;
+    }
+
+    .project-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(10px);
+    }
+  </style>
+
+  <script>
+    const contentData = {
+      projects: `
+        <h1>Projects</h1>
+        <div class="project-item">
+          <h3>KurvedWind - ML Surrogate Modeling</h3>
+          <p><strong>FEM simulation and machine learning surrogate model for spring-back prediction</strong></p>
+          <p>Developed a hybrid approach combining physics-based FEM simulations with data-driven ML to predict spring-back behavior in thermoforming processes. Achieved 1000x speedup compared to full FEM simulation while maintaining high accuracy (R² > 0.95).</p>
+          <p><em>Technologies: ABAQUS, Python, Gaussian Processes, Neural Networks</em></p>
+        </div>
+
+        <div class="project-item">
+          <h3>Elasto Capillary Kirigami</h3>
+          <p><strong>Mathematical modeling and experimental analysis of geometrical metamaterials</strong></p>
+          <p>Developed mathematical models of geometrical metamaterials, conducted experiments on Kirigami structures, and analyzed complex deformation modes using differential geometry and elasticity theory.</p>
+          <p><em>Technologies: MATLAB, Python, Experimental Mechanics, Image Processing</em></p>
+        </div>
+
+        <div class="project-item">
+          <h3>XFEM Hydraulic Fracturing Simulation</h3>
+          <p><strong>MATLAB implementation of Extended Finite Element Method</strong></p>
+          <p>Complete numerical simulation of hydraulic fracturing using XFEM, simultaneously solving solid deformation, fluid flow, and crack propagation. Implemented from scratch without external FEM libraries.</p>
+          <p><em>Technologies: MATLAB, XFEM, Fluid-Structure Interaction</em></p>
+        </div>
+
+        <div class="project-item">
+          <h3>Stress Localization in Thin Shells</h3>
+          <p><strong>Master's thesis on stress concentration in thin shell structures</strong></p>
+          <p>Developed novel curvature calculation method based on FEM data and differential geometry. Analyzed stress localization patterns and their relationship with geometric properties.</p>
+          <p><em>Technologies: ABAQUS, Python, Differential Geometry</em></p>
+        </div>
+      `,
+      about: `
+        <h1>About Me</h1>
+        <p>I'm a <strong>Mechanical Engineer</strong> with a passion for computational modeling and machine learning. Currently working as a Research Assistant at Aarhus University, I specialize in developing sophisticated simulations and leveraging ML to solve complex engineering problems.</p>
+
+        <h2>What I Do</h2>
+        <p>My work sits at the intersection of mechanical engineering, numerical simulations, and data science:</p>
+        <ul>
+          <li><strong>Finite Element Modeling (FEM)</strong> - Advanced simulations for thermoforming, thin shell mechanics, and material behavior</li>
+          <li><strong>Machine Learning & Surrogate Modeling</strong> - Building ML models to predict physical phenomena and accelerate workflows</li>
+          <li><strong>Mathematical Modeling</strong> - Creating analytical and numerical models for complex systems</li>
+          <li><strong>Optimization</strong> - Applying ML techniques to improve designs and processes</li>
+        </ul>
+
+        <h2>Current Work</h2>
+        <p><strong>Aarhus University</strong> (2021 - Present)</p>
+        <ul>
+          <li><strong>KurvedWind Project:</strong> FEM simulations + ML surrogate models for spring-back prediction (1000x speedup!)</li>
+          <li><strong>Elasto Capillary Kirigami:</strong> Mathematical modeling of geometrical metamaterials</li>
+        </ul>
+
+        <h2>Education</h2>
+        <ul>
+          <li><strong>M.Sc. in Mechanical Engineering</strong> - Aarhus University (2019-2021)</li>
+          <li><strong>Mechanical Engineer</strong> - Instituto Tecnológico de Buenos Aires (2011-2018)</li>
+        </ul>
+
+        <h2>Technical Skills</h2>
+        <p><strong>Programming:</strong> Python, MATLAB</p>
+        <p><strong>FEM/CFD:</strong> ABAQUS, ANSYS, COMSOL, Siemens NX</p>
+        <p><strong>ML/Data Science:</strong> Scikit-learn, NumPy, Pandas</p>
+
+        <h2>Languages</h2>
+        <p>Spanish (Native), English (Fluent), Italian (Fluent), Danish (Intermediate), German (Basic)</p>
+      `,
+      resume: `
+        <h1>Resume</h1>
+        <p><strong>Luis De Cunto</strong> | Mechanical Engineer | M.Sc. in Mechanical Engineering</p>
+        <p>Aarhus, Denmark | <a href="mailto:luisdcnt@gmail.com">luisdcnt@gmail.com</a></p>
+
+        <h2>Work Experience</h2>
+
+        <h3>Research Assistant - Aarhus University</h3>
+        <p><em>January 2021 – Present | Aarhus, Denmark</em></p>
+        <ul>
+          <li>KurvedWind Project: FEM simulation + ML surrogate model development</li>
+          <li>Elasto Capillary Kirigami: Mathematical modeling of metamaterials</li>
+          <li>Experimental design, fabrication, and data analysis</li>
+        </ul>
+
+        <h3>Teaching Assistant - Aarhus University</h3>
+        <p><em>March 2020 – January 2021</em></p>
+        <ul>
+          <li>Courses: Mechanical Vibrations, Continuum Mechanics, Physics</li>
+          <li>Lecture preparation, grading, student support</li>
+        </ul>
+
+        <h3>Young Graduate Trainee - CONUAR FAE</h3>
+        <p><em>June 2017 – August 2018 | Argentina</em></p>
+        <ul>
+          <li>FEM simulations for nuclear fuel production</li>
+          <li>Technical documentation and project development</li>
+        </ul>
+
+        <h2>Education</h2>
+
+        <h3>M.Sc. in Mechanical Engineering</h3>
+        <p><em>Aarhus University (2019-2021)</em></p>
+        <p>Thesis: "Numerical Study of Stress Localization in Thin Shells"</p>
+
+        <h3>Mechanical Engineer</h3>
+        <p><em>Instituto Tecnológico de Buenos Aires (2011-2018)</em></p>
+        <p>Final Project: "Numerical Implementation of Hydraulic Fracturing model using XFEM"</p>
+
+        <h2>Technical Skills</h2>
+        <ul>
+          <li><strong>Programming:</strong> Python, MATLAB</li>
+          <li><strong>FEM/CFD:</strong> ABAQUS, ANSYS, COMSOL, Siemens NX, CATIA</li>
+          <li><strong>ML/Data Science:</strong> Scikit-learn, NumPy, Pandas</li>
+          <li><strong>Key Competences:</strong> Mathematical Modeling, Numerical Simulations, Nonlinear Optimization, Surrogate Modeling</li>
+        </ul>
+
+        <h2>Publications</h2>
+        <p>Pedreira, P. H., J. R. Lauretta, and S. D'hers. "Planar Nozzles for Controllable Microthrusters." <em>Journal of Aerospace Engineering</em> (2016)</p>
+      `
+    };
+
+    function showContent(section) {
+      const overlay = document.getElementById('content-overlay');
+      const contentBody = document.getElementById('content-body');
+      const hero = document.querySelector('.hero');
+
+      contentBody.innerHTML = contentData[section];
+      overlay.classList.add('active');
+      hero.classList.add('hidden');
+    }
+
+    function closeContent() {
+      const overlay = document.getElementById('content-overlay');
+      const hero = document.querySelector('.hero');
+
+      overlay.classList.remove('active');
+      hero.classList.remove('hidden');
+    }
+
+    // Add click handlers to nav cards
+    document.querySelectorAll('.nav-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        e.preventDefault();
+        const section = this.getAttribute('data-section');
+        showContent(section);
+      });
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeContent();
+      }
+    });
+  </script>
 </body>
 </html>
